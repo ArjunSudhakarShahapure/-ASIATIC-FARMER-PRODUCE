@@ -58,4 +58,20 @@ achievements.forEach(item => {
         this.style.color = '';
         this.style.transform = 'translateX(0)';
     });
+});
+
+// Handle brochure download
+document.querySelector('.download-button').addEventListener('click', function(e) {
+    // Check if the file exists
+    fetch(this.href)
+        .then(response => {
+            if (!response.ok) {
+                e.preventDefault();
+                alert('The brochure is currently being updated. Please contact us to request the latest version.');
+            }
+        })
+        .catch(() => {
+            e.preventDefault();
+            alert('The brochure is currently being updated. Please contact us to request the latest version.');
+        });
 }); 
